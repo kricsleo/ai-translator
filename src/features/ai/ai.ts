@@ -4,38 +4,38 @@ import { createGoogleGenerativeAI } from "@ai-sdk/google"
 import { createDeepSeek } from '@ai-sdk/deepseek'
 import { streamText } from "ai"
 
-function useModel() {
-  const { provider, providerSettings } = useSettings()
+function useModelClient() {
+  const { provider, apiKey, model } = useSettings()
 
-  const model = computed(() => {
-    if(!providerSettings.value) {
+  const modelClient = computed(() => {
+    if(!provider.value || !apiKey.value || !model.value) {
       return
     }
 
     switch (provider.value) {
       case "gemini": return createGoogleGenerativeAI({
-        apiKey: providerSettings.value.apiKey
-      })(providerSettings.value?.model);
+        apiKey: apiKey.value
+      })(model.value);
 
       case "deepseek": return createDeepSeek({
-        apiKey: providerSettings.value.apiKey
-      })(providerSettings.value?.model);
+        apiKey: apiKey.value
+      })(model.value);
 
       default: return
     }
   })
 
-  return model
+  return modelClient
 }
 
 export function useAi(input: Ref<string>) {
-  const model = useModel()
+  const modelClient = useModelClient()
   const output = ref("")
   const controller = ref(new AbortController())
 
   generate()
 
-  watch([input, model], () => {
+  watch([input, modelClient], () => {
     reset()    
     generate()
   })
@@ -49,13 +49,13 @@ export function useAi(input: Ref<string>) {
   }
 
   async function generate() {
-    if(!model.value || !input.value) {
+    if(!modelClient.value || !input.value) {
       return
     }
 
     const _controller = controller.value
     const { textStream } = streamText({
-      model: model.value,
+      model: modelClient.value,
       prompt: `Translate the following text to English: ${input.value}`,
       presencePenalty: 1,
       abortSignal: _controller.signal,

@@ -1,11 +1,10 @@
 import { computed } from 'vue'
 import { useLocalStorage, createGlobalState } from '@vueuse/core'
+import { Provider } from '../ai/providers.js'
 
-type Provider = 'deepseek' | 'gemini'
-
-interface ProviderSettings {
-  model: string
-  apiKey: string
+export interface ProviderSettings {
+  model?: string
+  apiKey?: string
 }
 
 type Settings = Partial<Record<Provider, ProviderSettings>>
@@ -18,24 +17,35 @@ export const useSettings = createGlobalState(() => {
     get() {
       return settings.value[provider.value]
     },
-    set(options: Partial<ProviderSettings>) {
-      if (!settings.value[provider.value]) return
-      Object.assign(settings.value[provider.value], options)
+    set(options: ProviderSettings) {
+      if(!provider.value) return
+      if(!settings.value) {
+        settings.value = {}
+      }
+      if(!settings.value[provider.value]) {
+        settings.value[provider.value] = {}
+      }
+      Object.assign(settings.value[provider.value]!, options)
     }
   })
 
-  function setProvider(_provider: Provider) {
-    provider.value = _provider
-  }
+  const apiKey = computed({
+    get() {
+      return providerSettings.value?.apiKey
+    },
+    set(apiKey: string) {
+      providerSettings.value = { apiKey }
+    }
+  })
 
-  function updateProviderSettings(options: Partial<ProviderSettings>) {
-    providerSettings.value = options
-  }
+  const model = computed({
+    get() {
+      return providerSettings.value?.model
+    },
+    set(model: string) {
+      providerSettings.value = { model }
+    }
+  })
 
-  return { 
-    provider, 
-    providerSettings,
-    setProvider,
-    updateProviderSettings,
-  }
+  return { provider, apiKey, model }
 })
