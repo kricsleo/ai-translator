@@ -18,14 +18,14 @@ const icon = computed(() => tools.find(t => t.value === tool.value)?.icon)
 <template>
   <div>
     <Textarea 
-      class="resize-none h-60 !text-base"
+      class="resize-none min-h-40 !text-base"
       v-model="input"
       @keydown.enter="generate" />
 
     <div class="flex items-center my-6">
       <span class="h-[1px] bg-accent flex-1" />
       <i :class="[
-        'w-20 text-center text-lg', 
+        'w-20 text-center text-lg text-muted-foreground', 
         loading ? 'icon-[hugeicons--loading-03] animate-spin' : icon]" />
       <span class="h-[1px] bg-accent flex-1" />
     </div>
