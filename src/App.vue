@@ -2,13 +2,19 @@
 import { Toaster } from '~/components/ui/sonner'
 import SettingsDialog from '~/features/settings/SettingsDialog.vue'
 import Repl from '~/features/repl/Repl.vue'
+import ToolsMenu from './features/tools/ToolsMenu.vue';
 </script>
 
 <template>
-  <div>
-    <Toaster />
-    <SettingsDialog />
+  <main class="w-167 mx-auto p-6">
+    <div>
+      <ToolsMenu />
+      <SettingsDialog />
+    </div>
+    
     <Repl />
-  </div>
+  </main>
+
+  <Toaster />
 </template>
 

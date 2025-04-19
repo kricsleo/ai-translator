@@ -1,0 +1,28 @@
+import { createGlobalState, useLocalStorage } from "@vueuse/core";
+
+export type Tool = 'translate' | 'polish'
+
+export interface ToolOption {
+  icon: string
+  label: string
+  value: Tool
+}
+
+export const tools: ToolOption[] = [
+  { 
+    icon: "icon-[hugeicons--translate]", 
+    label: "Translate",
+    value: 'translate',
+  },
+  { 
+    icon: "icon-[hugeicons--translate]", 
+    label: "Polish",
+    value: 'polish'
+  },
+]
+
+export const useTool = createGlobalState(() => {
+  const tool = useLocalStorage<Tool>("v1/tool", "translate");
+
+  return { tool }
+})

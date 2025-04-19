@@ -24,7 +24,7 @@ const apiKeyMasked = ref(true)
     <fieldset class="flex items-center gap-6">
       <label class="w-16 text-right shrink-0 text-muted-foreground">Provider</label>
       <Select v-model="provider">
-        <SelectTrigger class="w-120">
+        <SelectTrigger class="grow-1">
           <SelectValue placeholder="Select Provider" />
         </SelectTrigger>
         <SelectContent>
@@ -37,9 +37,9 @@ const apiKeyMasked = ref(true)
 
     <fieldset class="flex items-center gap-6">
       <label class="w-16 text-right shrink-0 text-muted-foreground">API Key</label>
-      <div class="relative flex items-center">
+      <div class="grow-1 relative flex items-center">
         <Input 
-          class="w-120 pr-10" 
+          class="grow-1 pr-10" 
           :type="apiKeyMasked ? 'password' : 'text'" 
           placeholder="Enter API key" 
           v-model="apiKey" />
@@ -54,7 +54,7 @@ const apiKeyMasked = ref(true)
     <fieldset class="flex items-center gap-6">
       <label class="w-16 text-right shrink-0 text-muted-foreground">Model</label>
       <Select v-model="model">
-        <SelectTrigger class="w-120">
+        <SelectTrigger class="grow-1">
           <SelectValue placeholder="Select Model" />
         </SelectTrigger>
         <SelectContent>

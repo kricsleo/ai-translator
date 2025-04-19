@@ -17,7 +17,7 @@ import Settings from './Settings.vue';
         <i class="icon-[hugeicons--settings-03]" />
       </Button>
     </DialogTrigger>
-    <DialogContent class="min-w-158">
+    <DialogContent>
       <DialogHeader>
         <DialogTitle>Settings</DialogTitle>
       </DialogHeader>

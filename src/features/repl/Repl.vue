@@ -8,13 +8,13 @@ const { output, generate } = useAi(input)
 </script>
 
 <template>
-  <div class="w-2/3 mx-auto mt-20">
+  <div>
     <Textarea 
       class="resize-none h-40"
       v-model="input"
       @keydown.enter="generate" />
 
-    <div class="flex items-center my-12">
+    <div class="flex items-center my-6">
       <span class="h-[1px] bg-accent flex-1" />
       <span class="w-40 text-center">translate</span>
       <span class="h-[1px] bg-accent flex-1" />
