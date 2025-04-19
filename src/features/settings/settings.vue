@@ -7,21 +7,23 @@ import {
   SelectValue,
 } from '~/components/ui/select'
 import { Input } from '~/components/ui/input'
-import { Label } from '~/components/ui/label'
 import { useSettings } from './settings';
 import { useModels } from '../ai/models'
 import { providers } from '../ai/providers'
+import { ref } from 'vue';
 
 const { provider, apiKey, model } = useSettings()
 const { models, loading } = useModels()
+
+const apiKeyMasked = ref(true)
 </script>
 
 <template>
-  <div class="w-2/3 space-y-6 border p-6 rounded">
+  <div class="space-y-6">
 
-    <fieldset class="flex gap-2">
-      <Label class="w-40 text-right shrink-0" for="provider">Provider:</Label>
-      <Select id="provider" v-model="provider">
+    <fieldset class="flex items-center gap-6">
+      <label class="w-16 text-right shrink-0 text-muted-foreground">Provider</label>
+      <Select v-model="provider">
         <SelectTrigger class="w-120">
           <SelectValue placeholder="Select Provider" />
         </SelectTrigger>
@@ -33,14 +35,25 @@ const { models, loading } = useModels()
       </Select>
     </fieldset>
 
-    <fieldset class="flex gap-2">
-      <Label class="w-40 text-right shrink-0" for="apiKey">API Key:</Label>
-      <Input id="apiKey" class="w-120" type="text" placeholder="Enter API key" v-model="apiKey" />
+    <fieldset class="flex items-center gap-6">
+      <label class="w-16 text-right shrink-0 text-muted-foreground">API Key</label>
+      <div class="relative flex items-center">
+        <Input 
+          class="w-120 pr-10" 
+          :type="apiKeyMasked ? 'password' : 'text'" 
+          placeholder="Enter API key" 
+          v-model="apiKey" />
+        <span 
+          class="absolute right-0 h-full w-10 flex items-center justify-center"
+          @click="apiKeyMasked = !apiKeyMasked">
+          <i :class="apiKeyMasked ? 'icon-[hugeicons--view-off]' : 'icon-[hugeicons--view]'" />
+        </span>
+      </div>
     </fieldset>
 
-    <fieldset class="flex gap-2">
-      <Label class="w-40 text-right shrink-0" for="model">Model:</Label>
-      <Select id="model" v-model="model">
+    <fieldset class="flex items-center gap-6">
+      <label class="w-16 text-right shrink-0 text-muted-foreground">Model</label>
+      <Select v-model="model">
         <SelectTrigger class="w-120">
           <SelectValue placeholder="Select Model" />
         </SelectTrigger>

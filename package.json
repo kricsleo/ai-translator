@@ -12,6 +12,8 @@
   "dependencies": {
     "@ai-sdk/deepseek": "^0.2.11",
     "@ai-sdk/google": "^1.2.11",
+    "@iconify-json/hugeicons": "^1.2.4",
+    "@iconify/tailwind4": "^1.0.6",
     "@vee-validate/zod": "^4.15.0",
     "@vueuse/core": "^13.1.0",
     "ai": "^4.3.9",

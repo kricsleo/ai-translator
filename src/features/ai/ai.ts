@@ -1,8 +1,9 @@
-import { computed, ref, Ref, watch } from "vue"
+import { computed, ref, Ref } from "vue"
 import { useSettings } from "../settings/settings.js"
 import { createGoogleGenerativeAI } from "@ai-sdk/google"
 import { createDeepSeek } from '@ai-sdk/deepseek'
 import { streamText } from "ai"
+import { toPolishMessages, toTranslateMessages } from "./prompts.js"
 
 function useModelClient() {
   const { provider, apiKey, model } = useSettings()
@@ -33,13 +34,6 @@ export function useAi(input: Ref<string>) {
   const output = ref("")
   const controller = ref(new AbortController())
 
-  generate()
-
-  watch([input, modelClient], () => {
-    reset()    
-    generate()
-  })
-
   return { output, generate }
 
   function reset() {
@@ -49,6 +43,7 @@ export function useAi(input: Ref<string>) {
   }
 
   async function generate() {
+    reset()
     if(!modelClient.value || !input.value) {
       return
     }
@@ -56,9 +51,10 @@ export function useAi(input: Ref<string>) {
     const _controller = controller.value
     const { textStream } = streamText({
       model: modelClient.value,
-      prompt: `Translate the following text to English: ${input.value}`,
       presencePenalty: 1,
       abortSignal: _controller.signal,
+      // messages: toTranslateMessages(input.value, ['Engligh', 'Chinese']),
+      messages: toPolishMessages(input.value)
     })
     for await (const textPart of textStream) {
       if(_controller !== controller.value || _controller.signal.aborted) {
