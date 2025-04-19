@@ -1,4 +1,19 @@
 import { CoreMessage } from "ai"
+import { useTool } from "../tools/tools.js"
+import { computed, Ref } from "vue"
+
+export function usePromptMessages(input: Ref<string>) {
+  const { tool } = useTool()
+  const messages = computed(() => {
+    switch (tool.value) {
+      case "translate": return toTranslateMessages(input.value, ['English', 'Chinese'])
+      case "polish": return toPolishMessages(input.value)
+      default: return []
+    }
+  })
+
+  return messages
+}
 
 export function toTranslateMessages(input: string, languages: [string, string]) {
   const messages: CoreMessage[] = [

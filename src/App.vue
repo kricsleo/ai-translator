@@ -7,11 +7,11 @@ import ToolsMenu from './features/tools/ToolsMenu.vue';
 
 <template>
   <main class="w-167 mx-auto p-6">
-    <div>
+    <div class="flex items-center justify-between mb-6">
       <ToolsMenu />
       <SettingsDialog />
     </div>
-    
+
     <Repl />
   </main>
 

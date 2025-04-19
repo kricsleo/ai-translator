@@ -3,7 +3,8 @@ import { useSettings } from "../settings/settings.js"
 import { createGoogleGenerativeAI } from "@ai-sdk/google"
 import { createDeepSeek } from '@ai-sdk/deepseek'
 import { streamText } from "ai"
-import { toPolishMessages, toTranslateMessages } from "./prompts.js"
+import { usePromptMessages } from "./prompts.js"
+import { toast } from "vue-sonner"
 
 function useModelClient() {
   const { provider, apiKey, model } = useSettings()
@@ -31,10 +32,13 @@ function useModelClient() {
 
 export function useAi(input: Ref<string>) {
   const modelClient = useModelClient()
+  const messages = usePromptMessages(input)
+
   const output = ref("")
+  const loading = ref(false)
   const controller = ref(new AbortController())
 
-  return { output, generate }
+  return { output, generate, loading }
 
   function reset() {
     output.value = ""
@@ -49,12 +53,19 @@ export function useAi(input: Ref<string>) {
     }
 
     const _controller = controller.value
+    loading.value = true
     const { textStream } = streamText({
       model: modelClient.value,
       presencePenalty: 1,
       abortSignal: _controller.signal,
-      // messages: toTranslateMessages(input.value, ['Engligh', 'Chinese']),
-      messages: toPolishMessages(input.value)
+      messages: messages.value,
+      onError: (error) => {
+        loading.value = false
+        toast.error(error)
+      },
+      onFinish: () => {
+        loading.value = false
+      },
     })
     for await (const textPart of textStream) {
       if(_controller !== controller.value || _controller.signal.aborted) {

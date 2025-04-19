@@ -15,7 +15,7 @@ export const tools: ToolOption[] = [
     value: 'translate',
   },
   { 
-    icon: "icon-[hugeicons--translate]", 
+    icon: "icon-[hugeicons--paint-board]", 
     label: "Polish",
     value: 'polish'
   },
