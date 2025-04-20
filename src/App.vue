@@ -8,7 +8,7 @@ import Theme from './features/theme/Theme.vue';
 </script>
 
 <template>
-  <main class="w-167 mx-auto p-6 min-h-[93.5vh]">
+  <main class="w-167 mx-auto p-6 min-h-[78vh]">
     <div class="flex items-center justify-between mb-6">
       <ToolsMenu />
       <div class="flex items-center">
@@ -20,7 +20,7 @@ import Theme from './features/theme/Theme.vue';
     <Repl />
   </main>
 
-  <Footer />
+  <Footer class="mt-[15vh]" />
 
   <Toaster />
 </template>

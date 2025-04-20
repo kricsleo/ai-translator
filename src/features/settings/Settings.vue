@@ -13,10 +13,11 @@ import { providers } from '../ai/providers'
 import { ref } from 'vue';
 import Langs from './langs/Langs.vue';
 
-const { provider, apiKey, model } = useSettings()
+const { provider, apiKey, model, proxy } = useSettings()
 const { models, loading } = useModels()
 
 const apiKeyMasked = ref(true)
+const proxyMasked = ref(true)
 </script>
 
 <template>
@@ -34,6 +35,22 @@ const apiKeyMasked = ref(true)
           </SelectItem>
         </SelectContent>
       </Select>
+    </fieldset>
+
+    <fieldset class="flex items-center gap-4">
+      <label class="w-18 text-right shrink-0 text-muted-foreground">Proxy</label>
+      <div class="grow-1 relative flex items-center">
+        <Input 
+          class="grow-1 pr-10" 
+          :type="proxyMasked ? 'password' : 'text'" 
+          placeholder="Enter Proxy URL" 
+          v-model="proxy" />
+        <span 
+          class="absolute right-0 h-full w-10 flex items-center justify-center"
+          @click="proxyMasked = !proxyMasked">
+          <i :class="proxyMasked ? 'iconify hugeicons--view-off' : 'iconify hugeicons--view'" />
+        </span>
+      </div>
     </fieldset>
 
     <fieldset class="flex items-center gap-4">

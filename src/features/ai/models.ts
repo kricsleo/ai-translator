@@ -10,7 +10,8 @@ export interface Model {
 }
 
 export function useModels() {
-  const { provider, apiKey } = useSettings()
+  const { provider, apiKey, proxy } = useSettings()
+
   const models = useLocalStorage<Model[]>('v1/models', [])
   const loading = ref(false)
   const reqId = ref(0)
@@ -26,7 +27,7 @@ export function useModels() {
     const _reqId = reqId.value
     const _models = await (() => {
       switch (provider.value) {
-        case "gemini": return fetchGeminiModels(apiKey.value).catch(() => [])
+        case "gemini": return fetchGeminiModels(apiKey.value, proxy.value).catch(() => [])
         case "deepseek": return fetchDeepSeekModels(apiKey.value).catch(() => [])
         default: return []
       }
@@ -44,8 +45,8 @@ export function useModels() {
   return { models, loading }
 }
 
-export async function fetchGeminiModels(apiKey: string) {
-  const url = "https://generativelanguage.googleapis.com/v1beta/models"
+export async function fetchGeminiModels(apiKey: string, baseURL?: string) {
+  const url = `${baseURL || 'https://generativelanguage.googleapis.com/v1beta'}/models`
 
   const resp = await http<{models: Model[]}>(url, {
     headers: { 'X-Goog-Api-Key': apiKey }

@@ -7,7 +7,7 @@ import { usePromptMessages } from "./prompts.js"
 import { toast } from "vue-sonner"
 
 function useModelClient() {
-  const { provider, apiKey, model } = useSettings()
+  const { provider, apiKey, model, proxy } = useSettings()
 
   const modelClient = computed(() => {
     if(!provider.value || !apiKey.value || !model.value) {
@@ -16,7 +16,8 @@ function useModelClient() {
 
     switch (provider.value) {
       case "gemini": return createGoogleGenerativeAI({
-        apiKey: apiKey.value
+        apiKey: apiKey.value,
+        baseURL: proxy.value,
       })(model.value);
 
       case "deepseek": return createDeepSeek({

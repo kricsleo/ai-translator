@@ -5,6 +5,7 @@ import { Provider } from '../ai/providers.js'
 export interface ProviderSettings {
   model?: string
   apiKey?: string
+  proxy?: string
 }
 
 type Settings = Partial<Record<Provider, ProviderSettings>>
@@ -47,5 +48,14 @@ export const useSettings = createGlobalState(() => {
     }
   })
 
-  return { provider, apiKey, model }
+  const proxy = computed({
+    get() {
+      return providerSettings.value?.proxy
+    },
+    set(proxy: string) {
+      providerSettings.value = { proxy }
+    }
+  })
+
+  return { provider, apiKey, model, proxy }
 })
