@@ -11,6 +11,7 @@ import { useSettings } from './settings';
 import { useModels } from '../ai/models'
 import { providers } from '../ai/providers'
 import { ref } from 'vue';
+import Langs from './langs/Langs.vue';
 
 const { provider, apiKey, model } = useSettings()
 const { models, loading } = useModels()
@@ -21,8 +22,8 @@ const apiKeyMasked = ref(true)
 <template>
   <div class="space-y-6">
 
-    <fieldset class="flex items-center gap-6">
-      <label class="w-16 text-right shrink-0 text-muted-foreground">Provider</label>
+    <fieldset class="flex items-center gap-4">
+      <label class="w-18 text-right shrink-0 text-muted-foreground">Provider</label>
       <Select v-model="provider">
         <SelectTrigger class="grow-1">
           <SelectValue placeholder="Select Provider" />
@@ -35,8 +36,8 @@ const apiKeyMasked = ref(true)
       </Select>
     </fieldset>
 
-    <fieldset class="flex items-center gap-6">
-      <label class="w-16 text-right shrink-0 text-muted-foreground">API Key</label>
+    <fieldset class="flex items-center gap-4">
+      <label class="w-18 text-right shrink-0 text-muted-foreground">API Key</label>
       <div class="grow-1 relative flex items-center">
         <Input 
           class="grow-1 pr-10" 
@@ -51,8 +52,8 @@ const apiKeyMasked = ref(true)
       </div>
     </fieldset>
 
-    <fieldset class="flex items-center gap-6">
-      <label class="w-16 text-right shrink-0 text-muted-foreground">Model</label>
+    <fieldset class="flex items-center gap-4">
+      <label class="w-18 text-right shrink-0 text-muted-foreground">Model</label>
       <Select v-model="model">
         <SelectTrigger class="grow-1">
           <SelectValue placeholder="Select Model" />
@@ -79,5 +80,6 @@ const apiKeyMasked = ref(true)
       </Select>
     </fieldset>
 
+    <Langs />
   </div>
 </template>

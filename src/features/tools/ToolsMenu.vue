@@ -11,17 +11,18 @@ const { tool } = useTool()
       v-for="item in tools"
       :key="item.label"
       :class="[
-        'relative px-4 py-1 cursor-default transition-colors',
+        'relative px-4 py-1 cursor-default transition-colors text-sm',
         { 'text-muted-foreground': item.value !== tool },
       ]"
       @click="tool = item.value"
     >
       <motion.div
         v-if="item.value === tool"
-        class="absolute inset-0 bg-accent rounded"
+        class="absolute inset-0 bg-accent rounded -z-1"
         layout-id="tools-menu-active"
+        :transition="{ duration: 0.15 }"
       />
-      <div class="relative flex items-center gap-2">
+      <div class="flex items-center gap-1">
         <i :class="item.icon" />
         {{ item.label }}
       </div>

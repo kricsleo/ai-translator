@@ -2,18 +2,25 @@
 import { Toaster } from '~/components/ui/sonner'
 import SettingsDialog from '~/features/settings/SettingsDialog.vue'
 import Repl from '~/features/repl/Repl.vue'
-import ToolsMenu from './features/tools/ToolsMenu.vue';
+import ToolsMenu from '~/features/tools/ToolsMenu.vue';
+import Footer from './features/footer/footer.vue';
+import Theme from './features/theme/Theme.vue';
 </script>
 
 <template>
-  <main class="w-167 mx-auto p-6">
+  <main class="w-167 mx-auto p-6 min-h-[93.5vh]">
     <div class="flex items-center justify-between mb-6">
       <ToolsMenu />
-      <SettingsDialog />
+      <div class="flex items-center">
+        <Theme />
+        <SettingsDialog />
+      </div>
     </div>
 
     <Repl />
   </main>
+
+  <Footer />
 
   <Toaster />
 </template>

@@ -13,8 +13,8 @@ import Settings from './Settings.vue';
 <template>
   <Dialog>
     <DialogTrigger>
-      <Button variant="secondary">
-        <i class="icon-[hugeicons--settings-03]" />
+      <Button variant="ghost" size="icon">
+        <i class="icon-[hugeicons--settings-01] size-4 text-muted-foreground" />
       </Button>
     </DialogTrigger>
     <DialogContent>

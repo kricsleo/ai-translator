@@ -56,12 +56,16 @@ export function useAi(input: Ref<string>) {
     loading.value = true
     const { textStream } = streamText({
       model: modelClient.value,
-      presencePenalty: 1,
       abortSignal: _controller.signal,
       messages: messages.value,
       onError: (error) => {
+        console.log('[Stream Error]', error)
         loading.value = false
-        toast.error(error)
+        const errorMessage = (error.error as any).message || 'Unknown error'
+        if(errorMessage.includes('aborted')) {
+          return
+        }
+        toast.error(errorMessage)
       },
       onFinish: () => {
         loading.value = false

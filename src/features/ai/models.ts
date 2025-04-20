@@ -1,6 +1,7 @@
 import { ref, watch } from "vue"
 import { http } from "../http/http.js"
 import { useSettings } from "../settings/settings.js"
+import { useLocalStorage } from "@vueuse/core"
 
 export interface Model {
   name: string
@@ -10,13 +11,12 @@ export interface Model {
 
 export function useModels() {
   const { provider, apiKey } = useSettings()
-  const models = ref<Model[]>([])
+  const models = useLocalStorage<Model[]>('v1/models', [])
   const loading = ref(false)
   const reqId = ref(0)
 
   watch([provider, apiKey], async () => {
     reqId.value += 1
-    models.value = []
 
     if(!provider.value || !apiKey.value) {
       return
@@ -58,9 +58,7 @@ export async function fetchDeepSeekModels(apiKey: string) {
   const url = "https://api.deepseek.com/v1/models"
 
   const resp = await http<{data: Array<{ id: string }>}>(url, {
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-    }
+    headers: { 'Authorization': `Bearer ${apiKey}` }
   })
 
   const models = resp.data.map(item => ({ 
