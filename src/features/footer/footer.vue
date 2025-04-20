@@ -17,7 +17,7 @@ const year = new Date().getFullYear();
       href="https://github.com/kricsleo/ai-translator" 
       target="_blank" 
       rel="noopener noreferrer">
-      <i class="icon-[hugeicons--github]" />
+      <i class="iconify hugeicons--github" />
     </a>
   </footer>
 </template>

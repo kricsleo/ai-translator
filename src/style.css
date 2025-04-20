@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@plugin "@iconify/tailwind4";
+@plugin "@iconify/tailwind4" {
+  prefixes: hugeicons;
+}
 
 @custom-variant dark (&:is(.dark *));
 

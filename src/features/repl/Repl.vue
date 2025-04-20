@@ -44,7 +44,7 @@ async function copy() {
               <Button variant="ghost" size="icon" @click="generate">
                 <i :class="[
                   'w-20 text-center text-lg text-muted-foreground', 
-                  loading ? 'icon-[hugeicons--loading-03] animate-spin' : 'icon-[hugeicons--refresh]']" />
+                  loading ? 'iconify hugeicons--loading-03 animate-spin' : 'iconify hugeicons--refresh']" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
@@ -63,12 +63,12 @@ async function copy() {
                 @click="copy">
                 <motion.i
                   v-if="ready"
-                  class="icon-[hugeicons--copy-01] size-4.5 absolute"
+                  class="iconify hugeicons--copy-01 size-4.5 absolute"
                   :initial="{ scale: 0.2, opacity: 0 }"
                   :animate="{ scale: 1, opacity: 1 }" />
                 <motion.i 
                   v-else
-                  class="icon-[hugeicons--checkmark-circle-02] size-4.5 absolute text-muted-foreground"
+                  class="iconify hugeicons--checkmark-circle-02 size-4.5 absolute text-muted-foreground"
                   :initial="{ scale: 0.2, opacity: 0 }"
                   :animate="{ scale: 1, opacity: 0.65 }" />
               </Button>

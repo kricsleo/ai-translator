@@ -10,12 +10,12 @@ export interface ToolOption {
 
 export const tools: ToolOption[] = [
   { 
-    icon: "icon-[hugeicons--translate]", 
+    icon: "iconify hugeicons--translate", 
     label: "Translate",
     value: 'translate',
   },
   { 
-    icon: "icon-[hugeicons--paint-board]", 
+    icon: "iconify hugeicons--paint-board", 
     label: "Polish",
     value: 'polish'
   },

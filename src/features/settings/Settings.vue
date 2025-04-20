@@ -47,7 +47,7 @@ const apiKeyMasked = ref(true)
         <span 
           class="absolute right-0 h-full w-10 flex items-center justify-center"
           @click="apiKeyMasked = !apiKeyMasked">
-          <i :class="apiKeyMasked ? 'icon-[hugeicons--view-off]' : 'icon-[hugeicons--view]'" />
+          <i :class="apiKeyMasked ? 'iconify hugeicons--view-off' : 'iconify hugeicons--view'" />
         </span>
       </div>
     </fieldset>

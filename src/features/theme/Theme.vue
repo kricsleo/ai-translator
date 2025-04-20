@@ -16,12 +16,12 @@ const isDark = computed(() => theme.value === 'dark')
     @click="() => toggleTheme()"
   >
     <motion.i 
-      class="absolute icon-[hugeicons--sun-01] size-5"
+      class="absolute iconify hugeicons--sun-01 size-5"
       :initial="{ y: isDark ? 0 : '-200%' }"
       :animate="{ y: isDark ? '200%' : 0 }"
       :transition="{ ease: 'easeOut', duration: 0.3 }" />
     <motion.i 
-      class="absolute icon-[hugeicons--moon-01] size-4"
+      class="absolute iconify hugeicons--moon-01 size-4"
       :initial="{ y: isDark ? '200%': 0 }"
       :animate="{ y: isDark ? 0 : '-200%' }"
       :transition="{ ease: 'easeOut', duration: 0.3 }" />
