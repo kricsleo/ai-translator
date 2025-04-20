@@ -7,7 +7,7 @@ import {
   DialogTrigger,
 } from '~/components/ui/dialog'
 import { Button } from '~/components/ui/button'
-import Settings from './Settings.vue';
+import Settings from './Settings2.vue';
 </script>
 
 <template>
