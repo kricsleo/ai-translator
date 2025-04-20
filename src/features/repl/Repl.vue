@@ -21,7 +21,7 @@ watch(tool, () => {
   generate()
 })
 
-const { ready, start } = useTimeout(1000, { controls: true })
+const { isPending, start } = useTimeout(1000, { controls: true, immediate: false })
 async function copy() {
   await navigator.clipboard.writeText(output.value)
   start()
@@ -61,16 +61,16 @@ async function copy() {
                 variant="ghost" 
                 size="icon" 
                 @click="copy">
-                <motion.i
-                  v-if="ready"
-                  class="iconify hugeicons--copy-01 size-4.5 absolute"
-                  :initial="{ scale: 0.2, opacity: 0 }"
-                  :animate="{ scale: 1, opacity: 1 }" />
                 <motion.i 
-                  v-else
+                  v-if="isPending"
                   class="iconify hugeicons--checkmark-circle-02 size-4.5 absolute text-muted-foreground"
-                  :initial="{ scale: 0.2, opacity: 0 }"
+                  :initial="{ scale: 0.2, opacity: 0 }" 
                   :animate="{ scale: 1, opacity: 0.65 }" />
+                <motion.i
+                  v-else
+                  class="iconify hugeicons--copy-01 size-4.5 absolute"
+                  :initial="false"
+                  :animate="{ scale: 1, opacity: 1 }" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
