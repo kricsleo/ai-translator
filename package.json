@@ -12,7 +12,6 @@
   "dependencies": {
     "@ai-sdk/deepseek": "^0.2.11",
     "@ai-sdk/google": "^1.2.11",
-    "@iconify-json/hugeicons": "^1.2.4",
     "@iconify/tailwind4": "^1.0.6",
     "@vee-validate/zod": "^4.15.0",
     "@vueuse/core": "^13.1.0",
@@ -32,6 +31,7 @@
     "zod": "^3.24.3"
   },
   "devDependencies": {
+    "@iconify-json/hugeicons": "^1.2.4",
     "@tailwindcss/vite": "^4.1.4",
     "@vitejs/plugin-vue": "^5.2.2",
     "@vue/tsconfig": "^0.7.0",
