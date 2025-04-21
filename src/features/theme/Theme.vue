@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import { useTheme } from './theme';
 import Button from '~/components/ui/button/Button.vue';
 
-const { theme, toggleTheme } = useTheme()
-const isDark = computed(() => theme.value === 'dark')
+const { isDark, toggleTheme } = useTheme()
 </script>
 
 <template>

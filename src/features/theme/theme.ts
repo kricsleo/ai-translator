@@ -1,13 +1,15 @@
 import { createGlobalState, useLocalStorage } from "@vueuse/core"
+import { computed } from "vue"
 
 type Theme = 'light' | 'dark'
 
 export const useTheme = createGlobalState(() => {
   const theme = useLocalStorage('v1/theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+  const isDark = computed(() => theme.value === 'dark')
 
   function toggleTheme(_theme?: Theme) {
-    _theme = _theme || (theme.value === 'dark' ? 'light' : 'dark')
-    const isDark = _theme === 'dark'
+    _theme = _theme || (isDark.value ? 'light' : 'dark')
+    const nextIsDark = _theme === 'dark'
 
     if ('startViewTransition' in document) {
       const transition = document.startViewTransition(updateTheme)
@@ -31,11 +33,11 @@ export const useTheme = createGlobalState(() => {
 
     function updateTheme() {
       theme.value = _theme
-      document.documentElement.classList.toggle('dark', isDark)
+      document.documentElement.classList.toggle('dark', nextIsDark)
     }
   }
 
-  return { theme, toggleTheme }
+  return { theme, isDark, toggleTheme }
 })
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
