@@ -30,7 +30,7 @@ async function copy() {
 <template>
   <div>
     <Textarea 
-      class="resize-none min-h-40 !text-base text-muted-foreground"
+      class="resize-none min-h-40 !text-base text-secondary-foreground"
       v-model="input"
       @keydown.enter="generate" />
 
@@ -93,6 +93,6 @@ async function copy() {
       <span class="h-[1px] bg-accent flex-1" />
     </div>
 
-    <p class="whitespace-pre-wrap text-muted-foreground">{{ output }}</p>
+    <p class="whitespace-pre-wrap text-secondary-foreground">{{ output }}</p>
   </div>
 </template>

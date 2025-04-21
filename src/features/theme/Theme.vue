@@ -16,12 +16,12 @@ const isDark = computed(() => theme.value === 'dark')
   >
     <i 
       :class="[
-        'absolute iconify hugeicons--sun-01 size-5 transition',
+        'absolute iconify hugeicons--sun-01 size-5.5 transition duration-300',
         { 'translate-y-[200%]': isDark }
       ]" />
     <i 
       :class="[
-        'absolute iconify hugeicons--moon-slow-wind size-5 transition',
+        'absolute iconify hugeicons--moon-slow-wind size-5 transition duration-300',
         { '-translate-y-[200%]': !isDark }
       ]" />
   </Button>

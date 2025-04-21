@@ -91,7 +91,7 @@
   --primary: oklch(0.985 0 0);
   --primary-foreground: oklch(0.21 0.006 285.885);
   --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
+  --secondary-foreground: oklch(0.885 0 0);
   --muted: oklch(0.274 0.006 286.033);
   --muted-foreground: oklch(0.705 0.015 286.067);
   --accent: oklch(0.274 0.006 286.033);
@@ -145,9 +145,3 @@ body {
 ::view-transition-new(root) {
   z-index: 999;
 }
-/* .dark::view-transition-old(root) {
-  z-index: 999;
-}
-.dark::view-transition-new(root) {
-  z-index: 99;
-} */
