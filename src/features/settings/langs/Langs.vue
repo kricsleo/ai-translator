@@ -25,7 +25,7 @@ const { sourceLang, sourceLangName, targetLang, targetLangName } = useLangs()
           </SelectItem>
         </SelectContent>
       </Select>
-      <i class="iconify hugeicons--arrow-data-transfer-horizontal" />
+      <i class="iconify hugeicons--arrow-data-transfer-horizontal opacity-50" />
       <Select v-model="targetLang">
         <SelectTrigger>
           <SelectValue placeholder="Target Language">{{ targetLangName }}</SelectValue>

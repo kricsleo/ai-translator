@@ -48,7 +48,7 @@ const proxyMasked = ref(true)
         <span 
           class="absolute right-0 h-full w-10 flex items-center justify-center"
           @click="proxyMasked = !proxyMasked">
-          <i :class="proxyMasked ? 'iconify hugeicons--view-off' : 'iconify hugeicons--view'" />
+          <i :class="proxyMasked ? 'size-3.5 opacity-50 iconify hugeicons--view-off' : 'size-3.5 opacity-50 iconify hugeicons--view'" />
         </span>
       </div>
     </fieldset>
@@ -64,7 +64,7 @@ const proxyMasked = ref(true)
         <span 
           class="absolute right-0 h-full w-10 flex items-center justify-center"
           @click="apiKeyMasked = !apiKeyMasked">
-          <i :class="apiKeyMasked ? 'iconify hugeicons--view-off' : 'iconify hugeicons--view'" />
+          <i :class="apiKeyMasked ? 'size-3.5 opacity-50 iconify hugeicons--view-off' : 'size-3.5 opacity-50 iconify hugeicons--view'" />
         </span>
       </div>
     </fieldset>

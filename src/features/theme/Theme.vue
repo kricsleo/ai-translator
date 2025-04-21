@@ -2,7 +2,6 @@
 import { computed } from 'vue';
 import { useTheme } from './theme';
 import Button from '~/components/ui/button/Button.vue';
-import { motion } from 'motion-v';
 
 const { theme, toggleTheme } = useTheme()
 const isDark = computed(() => theme.value === 'dark')
@@ -15,15 +14,15 @@ const isDark = computed(() => theme.value === 'dark')
     size="icon"
     @click="() => toggleTheme()"
   >
-    <motion.i 
-      class="absolute iconify hugeicons--sun-01 size-5"
-      :initial="{ y: isDark ? 0 : '-200%' }"
-      :animate="{ y: isDark ? '200%' : 0 }"
-      :transition="{ ease: 'easeOut', duration: 0.3 }" />
-    <motion.i 
-      class="absolute iconify hugeicons--moon-01 size-4"
-      :initial="{ y: isDark ? '200%': 0 }"
-      :animate="{ y: isDark ? 0 : '-200%' }"
-      :transition="{ ease: 'easeOut', duration: 0.3 }" />
+    <i 
+      :class="[
+        'absolute iconify hugeicons--sun-01 size-5 transition',
+        { 'translate-y-[200%]': isDark }
+      ]" />
+    <i 
+      :class="[
+        'absolute iconify hugeicons--moon-slow-wind size-5 transition',
+        { '-translate-y-[200%]': !isDark }
+      ]" />
   </Button>
 </template>
