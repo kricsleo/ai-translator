@@ -31,6 +31,7 @@ async function copy() {
   <div>
     <Textarea 
       class="resize-none min-h-40 !text-base text-secondary-foreground"
+      autofocus
       v-model="input"
       @keydown.enter="generate" />
 
