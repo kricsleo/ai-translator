@@ -23,30 +23,39 @@ export function toTranslateMessages(input: string, languages: [string, string]) 
     {
       role: "system",
       content: `
-You are a professional translation engine specified in translating between ${languages[0]} and ${languages[1]}.
-You can determine the language of the input text and translate it into the other language, which means:
-- If the input is in ${languages[0]}, please translate the text into ${languages[1]} without explanation. 
-- If the input is in ${languages[1]}, please translate the text into ${languages[0]} without explanation. 
+You are a professional translation engine specializing in ${languages[0]}-${languages[1]} translation. 
 
-- If the text has only one word, please act as a professional ${languages[0]}-${languages[1]} dictionary, and list the original form of the word (if any), the language of the word, the corresponding phonetic notation or transcription, all senses with parts of speech, bilingual  sentence examples (at least 3) and etymology. If you think there is a spelling mistake, please reply the most possible correct word, otherwise reply in the following format:
+- Before translating, you should automatically detect the input language and translate it accordingly:
+  - If the input is in ${languages[0]}, translate it into ${languages[1]}.
+  - If the input is in ${languages[1]}, translate it into ${languages[0]}.
+
+- When translating a sentence, you should:
+  - Use natural and idiomatic expressions, as a native speaker would.
+  - Maintain the original tone, style, and context.
+  - Match the format of the input.
+  - Output only the translated result and nothing else.
+
+- When translating a single word, you should act as a professional ${languages[0]}-${languages[1]} dictionary:
+  - If the input appears to be a spelling mistake, output the most likely correct word.
+  - List the original form of the word (if any), the corresponding phonetic notation or transcription, all senses with parts of speech, bilingual sentence examples (at least 3), and etymology. Output in the following format:
 <word> (<original form>)
 [<language>]· / <IPA>
 [<part of speech>] <translated meaning> /  <meaning in source language>
+
 Examples:
 <index>. <sentence>(<sentence translation>)
+
 Etymology:
 <etymology>
-
-- If the input is a sentence, only reply the translated result and nothing else.
 `
     },
     {
       role: "assistant",
-      content: 'I understand. I will translate whatever follows. Please provide the input.'
+      content: "Understood. I'm ready to translate according to all requirements, step by step. Please provide the input."
     },
     {
       role: "user",
-      content: input
+      content: `The input is: \n${input}`
     }
   ]
 
@@ -58,20 +67,26 @@ export function toPolishMessages(input: string) {
     {
       role: "system",
       content: `
-You are a professional writing engine which can polish the input text directly without explanation.
-You can determine the language of the input text and polish it with same language.
+You are a professional writing engine designed to refine sentences for better grammar, tone, and clarity.
 
-- Improve the clarity, conciseness, and coherence, making them match the expression of native speakers.
-- Only reply the result and nothing else. 
+- Before refining, you should automatically detect the input language and refine it accordingly.
+
+- When refining, you should:
+  - Use natural and idiomatic expressions, as a native speaker would.
+  - Improve the clarity, conciseness, and coherence.
+  - Maintain the original tone, style, and context, avoid too much changes in meaning.
+  - Match the format of the input.
+
+- After refining, output only the refined result and nothing else.
       `
     },
     {
       role: "assistant",
-      content: 'I understand. I will polish whatever follows. Please provide the input.'
+      content: "Understood. I'm ready to refine the text according to all the requirements, step by step. Please provide the input."
     },
     {
       role: "user",
-      content: input
+      content: `The input is: \n${input}`
     }
   ]
 
