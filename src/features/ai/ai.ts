@@ -17,7 +17,7 @@ function useModelClient() {
     switch (provider.value) {
       case "gemini": return createGoogleGenerativeAI({
         apiKey: apiKey.value,
-        baseURL: proxy.value,
+        baseURL: proxy.value || undefined,
       })(model.value);
 
       case "deepseek": return createDeepSeek({
