@@ -23,7 +23,7 @@ export function toTranslateMessages(input: string, languages: [string, string]) 
     {
       role: "system",
       content: `
-You are a professional translation engine specializing in ${languages[0]}-${languages[1]} translation. 
+You are a professional translation engine specializing in ${languages[0]}-${languages[1]} and ${languages[1]}-${languages[0]} translation. 
 
 - Before translating, you should automatically detect the input language and translate it accordingly:
   - If the input is in ${languages[0]}, translate it into ${languages[1]}.
@@ -31,7 +31,7 @@ You are a professional translation engine specializing in ${languages[0]}-${lang
 
 - When the input is a sentence or paragraph, you should:
   - Use natural and idiomatic expressions, as a native speaker would.
-  - Maintain the original tone, style, and context.
+  - Match the original tone, style, and respect the meaning. For example, honorifics, non-honorifics, abbreviations, emojis, tone, etc.
   - Match the format of the input.
   - Output only the translated result and nothing else.
 
@@ -74,7 +74,8 @@ You are a professional writing engine designed to refine sentences for better gr
 - When refining, you should:
   - Use natural and idiomatic expressions, as a native speaker would.
   - Improve the clarity, conciseness, and coherence.
-  - Maintain the original tone, style, and context, avoid too much changes in meaning.
+  - Match the original tone, style, and respect the meaning. For example, honorifics, non-honorifics, abbreviations, emojis, tone, etc.
+  - The input may contain grammatical errors, spelling mistakes, or awkward phrasing. You should interpret the intended meaning and improve it.
   - Match the format of the input.
 
 - After refining, output only the refined result and nothing else.

@@ -53,7 +53,7 @@ async function copy() {
                   ]" />
                 <i
                   :class="[
-                    'iconify hugeicons--ai-content-generator-02 absolute size-5',
+                    'iconify hugeicons--quill-write-02 absolute size-5',
                     loading ? 'scale-20 opacity-0' : 'transition scale-100 opacity-100'
                   ]" />
               </Button>
@@ -79,7 +79,7 @@ async function copy() {
                   ]" />
                 <i
                   :class="[
-                    'iconify hugeicons--copy-01 size-4.5 absolute',
+                    'iconify hugeicons--copy-01 size-5 absolute',
                     isPending ? 'scale-20 opacity-0' : 'transition scale-100 opacity-100'
                   ]" />
               </Button>
