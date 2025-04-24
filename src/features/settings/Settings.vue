@@ -44,6 +44,7 @@ const proxyMasked = ref(true)
           class="grow-1 pr-10" 
           :type="proxyMasked ? 'password' : 'text'" 
           placeholder="Enter Proxy URL" 
+          autocomplete="off"
           v-model="proxy" />
         <span 
           class="absolute right-0 h-full w-10 flex items-center justify-center"
@@ -60,6 +61,7 @@ const proxyMasked = ref(true)
           class="grow-1 pr-10" 
           :type="apiKeyMasked ? 'password' : 'text'" 
           placeholder="Enter API key" 
+          autocomplete="off"
           v-model="apiKey" />
         <span 
           class="absolute right-0 h-full w-10 flex items-center justify-center"
