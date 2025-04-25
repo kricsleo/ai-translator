@@ -1,5 +1,16 @@
-# Vue 3 + TypeScript + Vite
+# Translator driven by AI
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<h3 align="center">
+  <a href="https://translate.kric.cc" target="_blank">translate.kric.cc</a>
+</h3>
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+I really like [openai-translator](https://github.com/openai-translator/openai-translator), but unfortunately, it's not being actively maintained anymore. The author, [yetone](https://x.com/yetone), has put it aside due to [the difficult task of upgrading Tauri](https://x.com/yetone/status/1912398092667928887).
+
+So, I tried to build some of the features I use in the translator from scratch.
+
+However, if [openai-translator](https://github.com/openai-translator/openai-translator) becomes active again, I'll switch back to it ❤️
+
+> [!NOTE]
+> You'll need to provide your own API key for the AI services.
+> 
+> Currently, [Gemini](https://aistudio.google.com/app/apikey) and [DeepSeek](https://platform.deepseek.com/api_keys) are supported. (Because I use them the most 😝)
