@@ -19,7 +19,7 @@ const { isDark, toggleTheme } = useTheme()
       ]" />
     <i 
       :class="[
-        'absolute iconify hugeicons--moon-slow-wind size-5 transition duration-300',
+        'absolute iconify hugeicons--moon-02 size-5 transition duration-300',
         { '-translate-y-[200%]': !isDark }
       ]" />
   </Button>

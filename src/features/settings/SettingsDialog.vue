@@ -14,7 +14,7 @@ import Settings from './Settings.vue';
   <Dialog>
     <DialogTrigger>
       <Button class="text-muted-foreground" variant="ghost" size="icon">
-        <i class="iconify hugeicons--settings-02 size-4.5" />
+        <i class="iconify hugeicons--settings-02 size-5" />
       </Button>
     </DialogTrigger>
     <DialogContent>

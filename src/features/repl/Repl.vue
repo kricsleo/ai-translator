@@ -25,6 +25,21 @@ async function copy() {
   await navigator.clipboard.writeText(output.value)
   start()
 }
+
+function confirm(e: KeyboardEvent) {
+  if(e.shiftKey) {
+    return
+  }
+
+  e.preventDefault()
+  generate()
+}
+
+async function paste() {
+  const text = await navigator.clipboard.readText()
+  input.value = text
+  generate()
+}
 </script>
 
 <template>
@@ -33,12 +48,25 @@ async function copy() {
       class="resize-none min-h-40 !text-base text-secondary-foreground"
       autofocus
       v-model="input"
-      @keydown.enter="generate" />
+      @keydown.enter="confirm" />
 
     <div class="flex items-center my-6 gap-6">
       <span class="h-[1px] bg-accent flex-1" />
       <div class="flex items-center gap-2">
-        <TooltipProvider :delayDuration="1000">
+        <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger class="flex">
+                <Button class="text-muted-foreground" variant="ghost" size="icon" @click="paste">
+                  <i class="iconify hugeicons--clipboard size-5" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Read text from clipboard</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+        <TooltipProvider>
           <Tooltip>
             <TooltipTrigger class="flex">
               <Button 
@@ -64,7 +92,7 @@ async function copy() {
           </Tooltip>
         </TooltipProvider>
 
-        <TooltipProvider :delayDuration="1000">
+        <TooltipProvider>
           <Tooltip>
             <TooltipTrigger class="flex">
               <Button 
