@@ -30,6 +30,7 @@ You are a professional translation engine specializing in ${languages[0]}-${lang
   - If the input is in ${languages[1]}, translate it into ${languages[0]}.
 
 - Before translating, you should detect if the input is a single word or a phrase according to the original language.
+  Make sure you detect it right, so that the output is as accurate as possible.
 
 - When the input is a phrase you should:
   - CHANGE AS LITTLE AS POSSIBLE.
