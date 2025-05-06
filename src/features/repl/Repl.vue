@@ -52,16 +52,16 @@ async function paste() {
 
     <div class="flex items-center my-6 gap-6">
       <span class="h-[1px] bg-accent flex-1" />
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-6">
         <TooltipProvider>
             <Tooltip>
               <TooltipTrigger class="flex">
                 <Button class="text-muted-foreground" variant="ghost" size="icon" @click="paste">
-                  <i class="iconify hugeicons--clipboard size-5" />
+                  <i class="iconify hugeicons--file-paste size-5" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Read text from clipboard</p>
+                <p>Paste text from clipboard</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
