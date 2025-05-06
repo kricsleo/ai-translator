@@ -1,12 +1,19 @@
 {
-  "name": "demo",
+  "name": "ai-translator",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
+  "author": "Kricsleo <kricsleo@163.com>",
+  "homepage": "https://github.com/kricsleo/craie#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kricsleo/craie.git"
+  },
   "packageManager": "pnpm@10.10.0",
   "scripts": {
     "dev": "vite --open",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -33,7 +40,6 @@
     "@tailwindcss/vite": "^4.1.5",
     "@vitejs/plugin-vue": "^5.2.3",
     "typescript": "~5.8.3",
-    "vite": "^6.3.4",
-    "vue-tsc": "^2.2.10"
+    "vite": "^6.3.4"
   }
 }
