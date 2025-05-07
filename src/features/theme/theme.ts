@@ -4,7 +4,7 @@ import { computed } from "vue"
 type Theme = 'light' | 'dark'
 
 export const useTheme = createGlobalState(() => {
-  const theme = useLocalStorage('v1/theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+  const theme = useLocalStorage('v1/theme', (typeof window === 'undefined' ? 'light' : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
   const isDark = computed(() => theme.value === 'dark')
 
   function toggleTheme(_theme?: Theme) {
@@ -39,8 +39,9 @@ export const useTheme = createGlobalState(() => {
 
   return { theme, isDark, toggleTheme }
 })
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  const theme = e.matches ? 'dark' : 'light'
-  useTheme().toggleTheme(theme)
-})
+if(typeof window !== 'undefined') {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    const theme = e.matches ? 'dark' : 'light'
+    useTheme().toggleTheme(theme)
+  })
+}
