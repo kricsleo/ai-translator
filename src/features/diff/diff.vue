@@ -17,9 +17,9 @@ const diffArr = computed(() => diffChars(props.source, props.target))
       v-for="(diff, idx) in diffArr" 
       :key="idx"
       :class="{
-        'text-red-500': diff.added,
-        'line-through': diff.added,
-        'text-green-500': diff.removed,
+        'text-red-500': diff.removed,
+        'line-through': diff.removed,
+        'text-green-500': diff.added,
       }"
       >{{ diff.value }}</span>
   </p>
