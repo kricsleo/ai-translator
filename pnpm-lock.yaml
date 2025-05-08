@@ -29,6 +29,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      diff:
+        specifier: ^7.0.0
+        version: 7.0.0
       lucide-vue-next:
         specifier: ^0.508.0
         version: 0.508.0(vue@3.5.13(typescript@5.8.3))
@@ -796,6 +799,10 @@ packages:
 
   diff-match-patch@1.0.5:
     resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
+
+  diff@7.0.0:
+    resolution: {integrity: sha512-PJWHUb1RFevKCwaFA9RlG5tCd+FO5iRh9A8HEtkmBH2Li03iJriB6m6JIN4rGz3K3JLawI7/veA1xzRKP6ISBw==}
+    engines: {node: '>=0.3.1'}
 
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
@@ -1957,6 +1964,8 @@ snapshots:
   detect-libc@2.0.3: {}
 
   diff-match-patch@1.0.5: {}
+
+  diff@7.0.0: {}
 
   dot-case@3.0.4:
     dependencies:

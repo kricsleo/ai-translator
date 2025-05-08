@@ -11,6 +11,7 @@ import { Textarea } from '~/components/ui/textarea'
 import { useTool } from '../tools/tools'
 import Button from '~/components/ui/button/Button.vue'
 import { useTimeout } from '@vueuse/core'
+import Diff from '../diff/diff.vue'
 
 const input = ref('')
 const { output, generate, loading } = useAi(input)
@@ -123,5 +124,13 @@ async function paste() {
     </div>
 
     <p class="whitespace-pre-wrap text-secondary-foreground">{{ output }}</p>
+
+    <p 
+      v-if="tool === 'polish' && output"
+      class="whitespace-pre-wrap text-secondary-foreground">
+      <Diff
+        :source="input"
+        :target="output" />
+    </p>
   </div>
 </template>
