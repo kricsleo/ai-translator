@@ -13,7 +13,7 @@
   "packageManager": "pnpm@10.10.0",
   "scripts": {
     "dev": "vite --open",
-    "build": "vite-ssg build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -42,7 +42,6 @@
     "@vitejs/plugin-vue": "^5.2.3",
     "rollup-plugin-visualizer": "^5.14.0",
     "typescript": "~5.8.3",
-    "vite": "^6.3.5",
-    "vite-ssg": "^26.1.1"
+    "vite": "^6.3.5"
   }
 }
