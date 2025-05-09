@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch, ref } from 'vue'
+import { watch, ref, useTemplateRef } from 'vue'
 import {
   Tooltip,
   TooltipContent,
@@ -17,8 +17,13 @@ import { usePolishDiff } from '../diff/diff'
 const input = ref('')
 const { output, generate, loading } = useAi(input)
 
+const textarea = useTemplateRef<InstanceType<typeof Textarea>>('textarea')
+
 const { tool } = useTool()
-watch(tool, generate)
+watch(tool, () => {
+  textarea.value?.focus()
+  generate()
+})
 
 const { isPending, start } = useTimeout(1000, { controls: true, immediate: false })
 async function copy() {
@@ -49,6 +54,7 @@ async function paste() {
     <Textarea 
       class="resize-none min-h-40 !text-base text-secondary-foreground"
       autofocus
+      ref="textarea"
       v-model="input"
       @keydown.enter="confirm" />
 
