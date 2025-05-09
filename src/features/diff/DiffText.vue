@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // @ts-expect-error no types
-import { diffChars } from 'diff';
+import { diffWords } from 'diff';
 import { computed } from 'vue';
 
 const props = defineProps<{
@@ -8,7 +8,7 @@ const props = defineProps<{
   target: string
 }>()
 
-const diffArr = computed(() => diffChars(props.source, props.target))
+const diffArr = computed(() => diffWords(props.source, props.target))
 </script>
 
 <template>
@@ -17,9 +17,9 @@ const diffArr = computed(() => diffChars(props.source, props.target))
       v-for="(diff, idx) in diffArr" 
       :key="idx"
       :class="{
-        'text-red-500': diff.removed,
+        'text-red-400': diff.removed,
         'line-through': diff.removed,
-        'text-green-500': diff.added,
+        'text-green-400': diff.added,
       }"
       >{{ diff.value }}</span>
   </p>

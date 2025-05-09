@@ -11,21 +11,22 @@ import { Textarea } from '~/components/ui/textarea'
 import { useTool } from '../tools/tools'
 import Button from '~/components/ui/button/Button.vue'
 import { useTimeout } from '@vueuse/core'
-import Diff from '../diff/diff.vue'
+import DiffText from '../diff/DiffText.vue'
+import { usePolishDiff } from '../diff/diff'
 
 const input = ref('')
 const { output, generate, loading } = useAi(input)
 
 const { tool } = useTool()
-watch(tool, () => {
-  generate()
-})
+watch(tool, generate)
 
 const { isPending, start } = useTimeout(1000, { controls: true, immediate: false })
 async function copy() {
   await navigator.clipboard.writeText(output.value)
   start()
 }
+
+const { diffing } = usePolishDiff()
 
 function confirm(e: KeyboardEvent) {
   if(e.shiftKey) {
@@ -118,19 +119,18 @@ async function paste() {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        
+
       </div>
       <span class="h-[1px] bg-accent flex-1" />
     </div>
 
-    <p class="whitespace-pre-wrap text-secondary-foreground">{{ output }}</p>
-
     <p 
-      v-if="tool === 'polish' && output"
+      v-if="tool === 'polish' && diffing && !loading && output"
       class="whitespace-pre-wrap text-secondary-foreground">
-      <Diff
-        :source="input"
-        :target="output" />
+      <DiffText :source="input" :target="output" />
+    </p>
+    <p v-else class="whitespace-pre-wrap text-secondary-foreground">
+      {{ output }}
     </p>
   </div>
 </template>

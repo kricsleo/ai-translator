@@ -22,7 +22,7 @@ import Settings from './Settings.vue';
         <DialogTitle>Settings</DialogTitle>
       </DialogHeader>
 
-      <Settings class="mt-4" />
+      <Settings class="mt-4 my-2" />
     </DialogContent>
   </Dialog>
 </template>

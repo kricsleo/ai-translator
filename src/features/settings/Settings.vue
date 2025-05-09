@@ -12,6 +12,7 @@ import { useModels } from '../ai/models'
 import { providers } from '../ai/providers'
 import { ref } from 'vue';
 import Langs from './langs/Langs.vue';
+import ToggleDiff from '../diff/ToggleDiff.vue';
 
 const { provider, apiKey, model, proxy } = useSettings()
 const { models, loading } = useModels()
@@ -100,5 +101,16 @@ const proxyMasked = ref(true)
     </fieldset>
 
     <Langs />
+
+    <hr />
+
+    <section>
+      <!-- <h3 class="text-lg text-muted-foreground">Polish</h3> -->
+      <fieldset class="flex justify-between items-center gap-4">
+        <label class="text-muted-foreground">Show Polish Diff</label>
+        <ToggleDiff />
+      </fieldset>
+    </section>
+
   </div>
 </template>
