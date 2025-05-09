@@ -3,13 +3,13 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import tailwindcss from "@tailwindcss/vite"
-import { visualizer } from "rollup-plugin-visualizer";
+import { analyzer } from 'vite-bundle-analyzer'
 
 export default defineConfig({
   plugins: [
     vue(),
     tailwindcss(),
-    visualizer(),
+    analyzer({ analyzerPort: 9000}),
   ],
   resolve: {
     alias: {
