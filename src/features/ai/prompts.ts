@@ -1,7 +1,9 @@
-import { CoreMessage } from "ai"
 import { useTool } from "../tools/tools.js"
 import { computed, Ref } from "vue"
 import { useLangs } from "../settings/langs/langs.js"
+import { streamText } from "@xsai/stream-text"
+
+type Messages = Parameters<typeof streamText>[0]["messages"]
 
 export function usePromptMessages(input: Ref<string>) {
   const { tool } = useTool()
@@ -19,7 +21,7 @@ export function usePromptMessages(input: Ref<string>) {
 }
 
 export function toTranslateMessages(input: string, languages: [string, string]) {
-  const messages: CoreMessage[] = [
+  const messages: Messages = [
     {
       role: "system",
       content: `
@@ -63,7 +65,7 @@ Etymology:
 }
 
 export function toPolishMessages(input: string) {
-  const messages: CoreMessage[] = [
+  const messages: Messages = [
     {
       role: "system",
       content: `

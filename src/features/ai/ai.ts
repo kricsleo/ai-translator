@@ -1,8 +1,7 @@
 import { computed, ref, Ref } from "vue"
 import { useSettings } from "../settings/settings.js"
-import { createGoogleGenerativeAI } from "@ai-sdk/google"
-import { createDeepSeek } from '@ai-sdk/deepseek'
-import { streamText } from "ai"
+import { streamText } from "@xsai/stream-text"
+import { createDeepSeek, createGoogleGenerativeAI } from '@xsai-ext/providers-cloud'
 import { usePromptMessages } from "./prompts.js"
 import { toast } from "vue-sonner"
 
@@ -15,14 +14,15 @@ function useModelClient() {
     }
 
     switch (provider.value) {
-      case "gemini": return createGoogleGenerativeAI({
-        apiKey: apiKey.value,
-        baseURL: proxy.value || undefined,
-      })(model.value);
+      case "gemini": return createGoogleGenerativeAI(
+        apiKey.value,
+        proxy.value || undefined,
+      );
 
-      case "deepseek": return createDeepSeek({
-        apiKey: apiKey.value
-      })(model.value);
+      case "deepseek": return createDeepSeek(
+        apiKey.value,
+        proxy.value || undefined,
+      );
 
       default: return
     }
@@ -33,6 +33,7 @@ function useModelClient() {
 
 export function useAi(input: Ref<string>) {
   const modelClient = useModelClient()
+  const { model } = useSettings()
   const messages = usePromptMessages(input)
 
   const output = ref("")
@@ -49,35 +50,36 @@ export function useAi(input: Ref<string>) {
 
   async function generate() {
     reset()
-    if(!modelClient.value || !input.value) {
+    if(!modelClient.value || !model.value || !input.value) {
       return
     }
 
     const _controller = controller.value
     loading.value = true
-    const { textStream } = streamText({
-      model: modelClient.value,
-      abortSignal: _controller.signal,
-      messages: messages.value,
-      onError: (error) => {
-        console.log('[Stream Error]', error)
-        loading.value = false
-        const errorMessage = (error.error as any).message || 'Unknown error'
-        if(errorMessage.includes('aborted')) {
+    try {
+      const { textStream } = await streamText({
+        ...modelClient.value.chat(model.value),
+        abortSignal: _controller.signal,
+        messages: messages.value,
+      })
+      // @ts-expect-error https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream#browser_compatibility
+      for await (const textPart of textStream) {
+        // race condition
+        if(_controller !== controller.value || _controller.signal.aborted) {
           return
         }
-        toast.error(errorMessage)
-      },
-      onFinish: () => {
-        loading.value = false
-      },
-    })
-    for await (const textPart of textStream) {
-      if(_controller !== controller.value || _controller.signal.aborted) {
+
+        output.value += textPart
+      }
+      loading.value = false
+    } catch (error: any) {
+      console.log('[Stream Error]', error)
+      loading.value = false
+      const errorMessage = (error.error as any).message || 'Unknown error'
+      if(errorMessage.includes('aborted')) {
         return
       }
-
-      output.value += textPart
+      toast.error(errorMessage)
     }
   }
 }
