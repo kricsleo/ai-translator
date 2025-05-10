@@ -18,8 +18,11 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
+          'vue': ['vue'],
+          'utils': ['@vueuse/core', 'ofetch', 'diff'],
+          'motion': ['motion-v'],
           'ai-sdk': ['@xsai-ext/providers-cloud', '@xsai/stream-text'],
-          'motion': ['motion-v']
+          'ui': ['reka-ui', 'lucide-vue-next', 'vue-sonner', 'vee-validate', 'tailwind-merge', 'clsx', 'class-variance-authority'],
         }
       }
     }

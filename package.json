@@ -43,5 +43,11 @@
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
     "vite-bundle-analyzer": "^0.20.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "motion-v>@vueuse/core": "^13",
+      "reka-ui>@vueuse/core": "^13"
+    }
   }
 }
