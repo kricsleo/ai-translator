@@ -47,7 +47,8 @@
   "pnpm": {
     "overrides": {
       "motion-v>@vueuse/core": "^13",
-      "reka-ui>@vueuse/core": "^13"
+      "reka-ui>@vueuse/core": "^13",
+      "reka-ui>@vueuse/shared": "^13"
     }
   }
 }
