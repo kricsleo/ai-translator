@@ -15,5 +15,14 @@ export default defineConfig({
     alias: {
       '~': '/src',
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'ai-sdk': ['@xsai-ext/providers-cloud', '@xsai/stream-text'],
+        }
+      }
+    }
   }
 })
