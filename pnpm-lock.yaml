@@ -8,6 +8,11 @@ overrides:
   reka-ui>@vueuse/core: ^13.1.0
   reka-ui>@vueuse/shared: ^13.1.0
 
+patchedDependencies:
+  vite-bundle-analyzer:
+    hash: 89fa953b9195636ec477262465dfb3e465e3f659c0d0e55ac64723dc852574ce
+    path: patches/vite-bundle-analyzer.patch
+
 importers:
 
   .:
@@ -78,7 +83,7 @@ importers:
         version: 6.3.5(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)
       vite-bundle-analyzer:
         specifier: ^0.20.1
-        version: 0.20.1
+        version: 0.20.1(patch_hash=89fa953b9195636ec477262465dfb3e465e3f659c0d0e55ac64723dc852574ce)
 
 packages:
 
@@ -1782,7 +1787,7 @@ snapshots:
       type-fest: 4.40.0
       vue: 3.5.13(typescript@5.8.3)
 
-  vite-bundle-analyzer@0.20.1: {}
+  vite-bundle-analyzer@0.20.1(patch_hash=89fa953b9195636ec477262465dfb3e465e3f659c0d0e55ac64723dc852574ce): {}
 
   vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0):
     dependencies:

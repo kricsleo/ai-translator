@@ -47,6 +47,9 @@
     "overrides": {
       "reka-ui>@vueuse/core": "^13.1.0",
       "reka-ui>@vueuse/shared": "^13.1.0"
+    },
+    "patchedDependencies": {
+      "vite-bundle-analyzer": "patches/vite-bundle-analyzer.patch"
     }
   }
 }
