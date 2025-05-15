@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-expect-error no types
 import { diffWords } from 'diff';
 import { computed } from 'vue';
 
