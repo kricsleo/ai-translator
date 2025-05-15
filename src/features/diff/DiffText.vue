@@ -17,8 +17,7 @@ const diffArr = computed(() => diffWords(props.source, props.target))
       v-for="(diff, idx) in diffArr" 
       :key="idx"
       :class="{
-        'text-red-400': diff.removed,
-        'line-through': diff.removed,
+        'text-red-400 line-through select-none': diff.removed,
         'text-green-400': diff.added,
       }"
       >{{ diff.value }}</span>
