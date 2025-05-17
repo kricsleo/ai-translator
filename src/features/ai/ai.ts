@@ -71,6 +71,7 @@ export function useAi(input: Ref<string>) {
 
         output.value += textPart
       }
+      output.value = output.value.trimEnd()
       loading.value = false
     } catch (error: any) {
       console.log('[Stream Error]', error)
