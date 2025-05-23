@@ -24,7 +24,7 @@
     "@xsai/stream-text": "^0.2.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "diff": "^8.0.1",
+    "diff": "^8.0.2",
     "lucide-vue-next": "^0.511.0",
     "ofetch": "^1.4.1",
     "reka-ui": "^2.2.1",
@@ -33,7 +33,7 @@
     "tw-animate-css": "^1.3.0",
     "vee-validate": "^4.15.0",
     "vue": "^3.5.14",
-    "vue-sonner": "^1.3.2"
+    "vue-sonner": "^2.0.0"
   },
   "devDependencies": {
     "@iconify-json/hugeicons": "^1.2.5",

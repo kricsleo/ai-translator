@@ -31,8 +31,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       diff:
-        specifier: ^8.0.1
-        version: 8.0.1
+        specifier: ^8.0.2
+        version: 8.0.2
       lucide-vue-next:
         specifier: ^0.511.0
         version: 0.511.0(vue@3.5.14(typescript@5.8.3))
@@ -58,8 +58,8 @@ importers:
         specifier: ^3.5.14
         version: 3.5.14(typescript@5.8.3)
       vue-sonner:
-        specifier: ^1.3.2
-        version: 1.3.2
+        specifier: ^2.0.0
+        version: 2.0.0
     devDependencies:
       '@iconify-json/hugeicons':
         specifier: ^1.2.5
@@ -657,8 +657,8 @@ packages:
     resolution: {integrity: sha512-3UDv+G9CsCKO1WKMGw9fwq/SWJYbI0c5Y7LU1AXYoDdbhE2AHQ6N6Nb34sG8Fj7T5APy8qXDCKuuIHd1BR0tVA==}
     engines: {node: '>=8'}
 
-  diff@8.0.1:
-    resolution: {integrity: sha512-rEaM3KmVm78zE3dFZaop3aCQa2MTm+T4kcigUFLVU/KbOYdiY6JnL2g2puOYnct3QFw9pjZadaCbCZ1O8ArMlQ==}
+  diff@8.0.2:
+    resolution: {integrity: sha512-sSuxWU5j5SR9QQji/o2qMvqRNYRDOcBTgsJ/DeCf4iSN4gW+gNMXM7wFIP+fdXZxoNiAnHUTGjCr+TSWXdRDKg==}
     engines: {node: '>=0.3.1'}
 
   enhanced-resolve@5.18.1:
@@ -991,8 +991,8 @@ packages:
       '@vue/composition-api':
         optional: true
 
-  vue-sonner@1.3.2:
-    resolution: {integrity: sha512-UbZ48E9VIya3ToiRHAZUbodKute/z/M1iT8/3fU8zEbwBRE11AKuHikssv18LMk2gTTr6eMQT4qf6JoLHWuj/A==}
+  vue-sonner@2.0.0:
+    resolution: {integrity: sha512-nvlqGGWvxEv9UnKcZxsGdKpHrODEdv3CXAJF3er+1pLC03caJt2+v9HuWtRqlBQwUr1SFttsYuwVbpbEl05n4A==}
 
   vue@3.5.14:
     resolution: {integrity: sha512-LbOm50/vZFG6Mhy6KscQYXZMQ0LMCC/y40HDJPPvGFQ+i/lUH+PJHR6C3assgOQiXdl6tAfsXHbXYVBZZu65ew==}
@@ -1487,7 +1487,7 @@ snapshots:
 
   detect-libc@2.0.4: {}
 
-  diff@8.0.1: {}
+  diff@8.0.2: {}
 
   enhanced-resolve@5.18.1:
     dependencies:
@@ -1796,7 +1796,7 @@ snapshots:
     dependencies:
       vue: 3.5.14(typescript@5.8.3)
 
-  vue-sonner@1.3.2: {}
+  vue-sonner@2.0.0: {}
 
   vue@3.5.14(typescript@5.8.3):
     dependencies:
