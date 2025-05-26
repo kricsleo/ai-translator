@@ -52,7 +52,7 @@ async function paste() {
 <template>
   <div>
     <Textarea 
-      class="resize-none min-h-40 !text-base text-secondary-foreground"
+      class="resize-none min-h-45 !text-base text-secondary-foreground"
       autofocus
       ref="textarea"
       v-model="input"

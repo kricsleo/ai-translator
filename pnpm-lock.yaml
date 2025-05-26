@@ -12,6 +12,12 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/geist':
+        specifier: ^5.2.6
+        version: 5.2.6
+      '@fontsource/inter':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@iconify/tailwind4':
         specifier: ^1.0.6
         version: 1.0.6(tailwindcss@4.1.7)
@@ -270,6 +276,12 @@ packages:
 
   '@floating-ui/vue@1.1.6':
     resolution: {integrity: sha512-XFlUzGHGv12zbgHNk5FN2mUB7ROul3oG2ENdTpWdE+qMFxyNxWSRmsoyhiEnpmabNm6WnUvR1OvJfUfN4ojC1A==}
+
+  '@fontsource/geist@5.2.6':
+    resolution: {integrity: sha512-HKRFUn4fApQr9iGaVLUWG5vs+QYFqhKa5X7AFpT6Gey0Kx0ibvpFceMbMDDdlzzqPiGkvCuvYRUN55rvqXgibg==}
+
+  '@fontsource/inter@5.2.5':
+    resolution: {integrity: sha512-kbsPKj0S4p44JdYRFiW78Td8Ge2sBVxi/PIBwmih+RpSXUdvS9nbs1HIiuUSPtRMi14CqLEZ/fbk7dj7vni1Sg==}
 
   '@iconify-json/hugeicons@1.2.5':
     resolution: {integrity: sha512-luPAFcmQU7eQFHzjtYdYbF5j2h8/6SCv+FGQP7FNJNVBjVGQOyuyum5wXDFEx13F8lGk/AGPVWGqMHp7+HdmJg==}
@@ -1127,6 +1139,10 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  '@fontsource/geist@5.2.6': {}
+
+  '@fontsource/inter@5.2.5': {}
 
   '@iconify-json/hugeicons@1.2.5':
     dependencies:
