@@ -12,9 +12,9 @@ const { sourceLang, sourceLangName, targetLang, targetLangName } = useLangs()
 </script>
 
 <template>
-  <fieldset class="flex items-center gap-4">
+  <fieldset class="flex items-center gap-3 md:gap-4">
     <label class="w-18 text-right shrink-0 text-muted-foreground">Language</label>
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-1 md:gap-4">
       <Select v-model="sourceLang">
         <SelectTrigger>
           <SelectValue placeholder="Source Language">{{ sourceLangName }}</SelectValue>

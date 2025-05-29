@@ -24,7 +24,7 @@ const proxyMasked = ref(true)
 <template>
   <div class="space-y-6">
 
-    <fieldset class="flex items-center gap-4">
+    <fieldset class="flex items-center gap-3 md:gap-4">
       <label class="w-18 text-right shrink-0 text-muted-foreground">Provider</label>
       <Select v-model="provider">
         <SelectTrigger class="grow-1">
@@ -38,7 +38,7 @@ const proxyMasked = ref(true)
       </Select>
     </fieldset>
 
-    <fieldset class="flex items-center gap-4">
+    <fieldset class="flex items-center gap-3 md:gap-4">
       <label class="w-18 text-right shrink-0 text-muted-foreground">Proxy</label>
       <div class="grow-1 relative flex items-center">
         <Input 
@@ -55,7 +55,7 @@ const proxyMasked = ref(true)
       </div>
     </fieldset>
 
-    <fieldset class="flex items-center gap-4">
+    <fieldset class="flex items-center gap-3 md:gap-4">
       <label class="w-18 text-right shrink-0 text-muted-foreground">API Key</label>
       <div class="grow-1 relative flex items-center">
         <Input 
@@ -72,7 +72,7 @@ const proxyMasked = ref(true)
       </div>
     </fieldset>
 
-    <fieldset class="flex items-center gap-4">
+    <fieldset class="flex items-center gap-3 md:gap-4">
       <label class="w-18 text-right shrink-0 text-muted-foreground">Model</label>
       <Select v-model="model">
         <SelectTrigger class="grow-1">
