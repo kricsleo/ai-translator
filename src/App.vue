@@ -8,7 +8,7 @@ import Theme from './features/theme/Theme.vue';
 </script>
 
 <template>
-  <main class="max-w-170 mx-auto py-4 px-2 sm:px-6 min-h-[78vh]">
+  <main class="max-w-170 mx-auto py-4 px-4 sm:px-6 min-h-[78vh]">
     <div class="flex items-center justify-between mb-6">
       <ToolsMenu />
       <div class="flex items-center">
