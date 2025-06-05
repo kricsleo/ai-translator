@@ -76,7 +76,7 @@ export function useAi(input: Ref<string>) {
     } catch (error: any) {
       console.log('[Stream Error]', error)
       loading.value = false
-      const errorMessage = (error.error as any).message || 'Unknown error'
+      const errorMessage = (error as any).message || 'Unknown error'
       if(errorMessage.includes('aborted')) {
         return
       }
