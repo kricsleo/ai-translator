@@ -22,11 +22,11 @@ importers:
         specifier: ^13.5.0
         version: 13.5.0(vue@3.5.17(typescript@5.8.3))
       '@xsai-ext/providers-cloud':
-        specifier: ^0.2.2
-        version: 0.2.2
+        specifier: ^0.3.0
+        version: 0.3.0
       '@xsai/stream-text':
-        specifier: ^0.2.2
-        version: 0.2.2
+        specifier: ^0.3.0
+        version: 0.3.0
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -590,20 +590,20 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
-  '@xsai-ext/providers-cloud@0.2.2':
-    resolution: {integrity: sha512-pwRIKgM0Pr/+ALS2d7AC/hH4Y/p2mDO2z+xcXKUtJV1Iz1pGbmXGc7ndLqjd79dh+nvHX/oHf0JhpveGiqY5UQ==}
+  '@xsai-ext/providers-cloud@0.3.0':
+    resolution: {integrity: sha512-FldwFGY+3dtYoRSV2EvqXZE3nVNIGpQ2ulZGpB1fD5npAfnsXFKZxyTppF2a7EcpTMQh2LhQdkirWWUlqYe8Hg==}
 
-  '@xsai-ext/shared-providers@0.2.2':
-    resolution: {integrity: sha512-yHQ3RQf3yb/xD5neQGFKmY/9+TmNFDZmH2aOSiS11rqAZwd6wPr/Wkvo/Ls1yiVGYVfZpzZGYp9Q+0iELt5MhA==}
+  '@xsai-ext/shared-providers@0.3.0':
+    resolution: {integrity: sha512-hzHrUpW8TPsFowJGR5vli/WODc9kQMZ8k4cIVcQ/IifvBnYeGVYnNGxAQ0TCY7gyTuOpYe4G/s3/YYE8BZt9hg==}
 
-  '@xsai/shared-chat@0.2.2':
-    resolution: {integrity: sha512-0t4HwbK2jm5Lrixg9RnIsYTtAvlQNUdJXs2taW7PFaXfL5ktMy2IwZwW2nqK+Ig0RcLCMp3sScZujERHSDMtmg==}
+  '@xsai/shared-chat@0.3.0':
+    resolution: {integrity: sha512-TbKsHBxMPn9RtB2bbN+c+zdTrslqBzbGqpKcxevEHzYAW4bM/bprdGjiwa4zFSQMXmTzNaJhVonZMMSo2Mv+Kw==}
 
-  '@xsai/shared@0.2.2':
-    resolution: {integrity: sha512-bgalLd3samx36hDRRmu3M75LY5NfWwh3YRaMwY4Woy7X09JQx+vEqVpJcaIeqcmVqztm8NGYzj8hUru7lwPh0w==}
+  '@xsai/shared@0.3.0':
+    resolution: {integrity: sha512-fUtZY+P2uedrxg3oU/Jdv9K/v+K9SiS3DmZ/iO5WFqC3NK/fvU/eJMJARpPCqLhPiDbv0+5eHZ/Ok/WXdIWLqg==}
 
-  '@xsai/stream-text@0.2.2':
-    resolution: {integrity: sha512-GTVGuKEpYBOglPQ7cjO18/v8jiZxY/lejXMt+KsZqyMQo/WmH6gUkYkRME/cTyxlQEUiF0L/0CqRjQvtaDlB+Q==}
+  '@xsai/stream-text@0.3.0':
+    resolution: {integrity: sha512-A0qOpsRGkXYbUzNugoMjdiFDbYWF5fXJWnumGyTDkEK2xxJpcaDdFFdvn6lFWbP9ctK5q8TDpRanV8KuqR2J6Q==}
 
   acorn@8.14.1:
     resolution: {integrity: sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==}
@@ -1440,24 +1440,24 @@ snapshots:
     dependencies:
       vue: 3.5.17(typescript@5.8.3)
 
-  '@xsai-ext/providers-cloud@0.2.2':
+  '@xsai-ext/providers-cloud@0.3.0':
     dependencies:
-      '@xsai-ext/shared-providers': 0.2.2
-      '@xsai/shared': 0.2.2
+      '@xsai-ext/shared-providers': 0.3.0
+      '@xsai/shared': 0.3.0
 
-  '@xsai-ext/shared-providers@0.2.2':
+  '@xsai-ext/shared-providers@0.3.0':
     dependencies:
-      '@xsai/shared': 0.2.2
+      '@xsai/shared': 0.3.0
 
-  '@xsai/shared-chat@0.2.2':
+  '@xsai/shared-chat@0.3.0':
     dependencies:
-      '@xsai/shared': 0.2.2
+      '@xsai/shared': 0.3.0
 
-  '@xsai/shared@0.2.2': {}
+  '@xsai/shared@0.3.0': {}
 
-  '@xsai/stream-text@0.2.2':
+  '@xsai/stream-text@0.3.0':
     dependencies:
-      '@xsai/shared-chat': 0.2.2
+      '@xsai/shared-chat': 0.3.0
 
   acorn@8.14.1: {}
 
