@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import { useLocalStorage, createGlobalState } from '@vueuse/core'
-import { Provider } from '../ai/providers.js'
+import type { Provider } from '../ai/providers'
 
 export interface ProviderSettings {
   model?: string

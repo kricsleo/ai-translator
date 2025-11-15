@@ -14,16 +14,4 @@ export default defineConfig({
       '~': '/src',
     }
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vue': ['vue'],
-          'utils': ['@vueuse/core', 'ofetch', 'diff'],
-          'ai-sdk': ['@xsai-ext/providers-cloud', '@xsai/stream-text'],
-          'ui': ['reka-ui', 'lucide-vue-next', 'vue-sonner', 'vee-validate', 'tailwind-merge', 'clsx', 'class-variance-authority'],
-        }
-      }
-    }
-  }
 })

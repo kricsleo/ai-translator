@@ -15,7 +15,8 @@
     "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview",
-    "analyze": "analyze"
+    "analyze": "analyze",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
@@ -42,13 +43,8 @@
     "@total-typescript/tsconfig": "^1.0.4",
     "@vitejs/plugin-vue": "^6.0.1",
     "typescript": "~5.9.3",
-    "vite": "^7.2.2",
-    "vite-bundle-analyzer": "^1.2.3"
-  },
-  "pnpm": {
-    "overrides": {
-      "reka-ui>@vueuse/core": "^14.0.0",
-      "reka-ui>@vueuse/shared": "^14.0.0"
-    }
+    "vite": "npm:rolldown-vite@latest",
+    "vite-bundle-analyzer": "^1.2.3",
+    "vue-tsc": "^3.1.3"
   }
 }

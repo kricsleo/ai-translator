@@ -1,4 +1,5 @@
-import { computed, ref, Ref } from "vue"
+import { computed, ref } from "vue"
+import type { Ref } from "vue"
 import { useSettings } from "../settings/settings.js"
 import { streamText } from "@xsai/stream-text"
 import { createDeepSeek, createGoogleGenerativeAI } from '@xsai-ext/providers-cloud'

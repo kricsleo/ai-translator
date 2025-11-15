@@ -1,5 +1,6 @@
 import { useTool } from "../tools/tools.js"
-import { computed, Ref } from "vue"
+import { computed } from "vue"
+import type { Ref } from "vue"
 import { useLangs } from "../settings/langs/langs.js"
 import { streamText } from "@xsai/stream-text"
 
