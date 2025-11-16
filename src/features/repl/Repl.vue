@@ -47,6 +47,10 @@ async function paste() {
   input.value = text
   generate()
 }
+
+// Auto paste clipboard content on mount
+// Might better to provide a setting for this.
+paste()
 </script>
 
 <template>
