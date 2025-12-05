@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch, ref, useTemplateRef } from 'vue'
+import { watch, ref, useTemplateRef, onMounted } from 'vue'
 import {
   Tooltip,
   TooltipContent,
@@ -50,7 +50,9 @@ async function paste() {
 
 // Auto paste clipboard content on mount
 // Might better to provide a setting for this.
-paste()
+onMounted(() => {
+  paste()
+})
 </script>
 
 <template>
