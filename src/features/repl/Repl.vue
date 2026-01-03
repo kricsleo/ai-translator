@@ -51,7 +51,7 @@ async function paste() {
 // Auto paste clipboard content on mount
 // Might better to provide a setting for this.
 onMounted(() => {
-  paste()
+  setTimeout(paste, 0)
 })
 </script>
 
