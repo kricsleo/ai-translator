@@ -2,7 +2,7 @@ import { computed, ref } from "vue"
 import type { Ref } from "vue"
 import { useSettings } from "../settings/settings.js"
 import { streamText } from "@xsai/stream-text"
-import { createDeepSeek, createGoogleGenerativeAI } from '@xsai-ext/providers-cloud'
+import { createDeepSeek, createGoogleGenerativeAI } from '@xsai-ext/providers/create'
 import { usePromptMessages } from "./prompts.js"
 import { toast } from "vue-sonner"
 
